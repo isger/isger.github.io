@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>World Cup 2026 · UK TV Guide</title>
-  <meta name="description" content="Which BBC or ITV channel is showing each World Cup 2026 match in the UK, with live streaming links.">
+  <title>World Cup 2026 on UK TV – BBC iPlayer & ITVX Schedule</title>
+  <meta name="description" content="Which World Cup 2026 matches are on BBC or ITV today? Full UK TV schedule with every game, kick-off time in BST, and whether to watch on BBC iPlayer or ITVX.">
+  <meta property="og:title" content="World Cup 2026 on UK TV – BBC iPlayer & ITVX Schedule">
+  <meta property="og:description" content="Which World Cup 2026 matches are on BBC or ITV today? Full UK TV schedule with kick-off times in BST and streaming links.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7796166739413908" crossorigin="anonymous"></script>
   <style>
     :root {
@@ -80,6 +84,15 @@
       }
 
       .ad-gutter { display: block; }
+    }
+
+    /* ── Page intro (static, always visible to crawlers) ── */
+    .page-intro {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+      padding: 0.85rem 1rem 0;
+      line-height: 1.6;
     }
 
     /* ── Legend ────────────────────── */
@@ -318,6 +331,7 @@
   </div>
 
   <div class="center-col">
+    <p class="page-intro">Every FIFA World Cup 2026 match is broadcast free-to-air in the UK, alternating between BBC (BBC One and BBC Two, streamed on BBC iPlayer) and ITV (ITV1 and ITV4, streamed on ITVX). Scottish viewers can watch ITV matches on STV and STV Player. All kick-off times are shown in BST (British Summer Time).</p>
     <div class="legend-wrap">
       <div class="legend">
         <div class="legend-item">
@@ -631,6 +645,39 @@ function render() {
 
 render();
 setInterval(render, 60000);
+
+// Inject JSON-LD structured data so search engines and LLMs can read
+// the full match schedule directly from the page source.
+(function() {
+  const items = MATCHES
+    .filter(m => m.match !== 'TBC' && m.broadcaster !== 'TBC')
+    .map((m, i) => ({
+      '@type': 'ListItem',
+      'position': i + 1,
+      'item': {
+        '@type': 'SportsEvent',
+        'name': m.match,
+        'startDate': `${m.date}T${m.time}:00+01:00`,
+        'sport': 'Association Football',
+        'description': `${m.group} · FIFA World Cup 2026 · ${m.channel} · ${m.stream}`,
+        'organizer': { '@type': 'Organization', 'name': 'FIFA' },
+        'location': { '@type': 'Place', 'name': 'United States, Canada & Mexico' },
+        'broadcastOfEvent': { '@type': 'BroadcastService', 'name': m.channel }
+      }
+    }));
+
+  const tag = document.createElement('script');
+  tag.type = 'application/ld+json';
+  tag.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    'name': 'FIFA World Cup 2026 UK TV Schedule',
+    'description': 'Complete schedule of FIFA World Cup 2026 matches on UK television, with BBC iPlayer and ITVX broadcast times in BST.',
+    'numberOfItems': items.length,
+    'itemListElement': items
+  });
+  document.head.appendChild(tag);
+})();
 </script>
 
 </body>
