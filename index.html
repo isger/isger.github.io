@@ -55,7 +55,7 @@
       opacity: 0.5;
     }
 
-    /* ── Page layout (center col + ad gutters) ── */
+    /* ── Page layout ── */
     .page-wrap {
       margin: 0 auto;
     }
@@ -63,27 +63,6 @@
     .center-col {
       max-width: 680px;
       margin: 0 auto;
-    }
-
-    .ad-gutter {
-      display: none;
-      padding-top: 1rem;
-    }
-
-@media (min-width: 1060px) {
-      .page-wrap {
-        display: grid;
-        grid-template-columns: 160px minmax(0, 680px) 160px;
-        gap: 1.5rem;
-        justify-content: center;
-      }
-
-      .center-col {
-        max-width: none;
-        margin: 0;
-      }
-
-      .ad-gutter { display: block; }
     }
 
     /* ── Page intro (static, always visible to crawlers) ── */
@@ -322,14 +301,6 @@
 
 <div class="page-wrap">
 
-  <div class="ad-gutter">
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:160px;height:600px"
-         data-ad-client="ca-pub-7796166739413908"
-         data-ad-slot="YOUR_AD_SLOT_ID"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </div>
-
   <div class="center-col">
     <p class="page-intro">Every FIFA World Cup 2026 match is broadcast free-to-air in the UK, alternating between BBC (BBC One and BBC Two, streamed on BBC iPlayer) and ITV (ITV1 and ITV4, streamed on ITVX). Scottish viewers can watch ITV matches on STV and STV Player. All kick-off times are shown in BST (British Summer Time).</p>
     <div class="legend-wrap">
@@ -349,14 +320,6 @@
     <main>
       <div id="app"></div>
     </main>
-  </div>
-
-  <div class="ad-gutter">
-    <ins class="adsbygoogle"
-         style="display:inline-block;width:160px;height:600px"
-         data-ad-client="ca-pub-7796166739413908"
-         data-ad-slot="YOUR_AD_SLOT_ID"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </div>
 
 </div>
@@ -443,28 +406,28 @@ const MATCHES = [
   { date:"2026-06-28", time:"00:30", match:"DR Congo v Uzbekistan",        group:"Group K",          broadcaster:"BBC",  channel:"BBC Two",        stream:"BBC iPlayer" },
   { date:"2026-06-28", time:"03:00", match:"Algeria v Austria",            group:"Group J",          broadcaster:"BBC",  channel:"BBC Two",        stream:"BBC iPlayer" },
   { date:"2026-06-28", time:"03:00", match:"Jordan v Argentina",           group:"Group J",          broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
-  { date:"2026-06-28", time:"20:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
+  { date:"2026-06-28", time:"20:00", match:"South Africa v Canada",        group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
 
-  { date:"2026-06-29", time:"18:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-06-29", time:"21:30", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
+  { date:"2026-06-29", time:"18:00", match:"Brazil v Japan",              group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
+  { date:"2026-06-29", time:"21:30", match:"Germany v Paraguay",          group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
 
-  { date:"2026-06-30", time:"02:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-06-30", time:"18:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-06-30", time:"22:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
+  { date:"2026-06-30", time:"02:00", match:"Netherlands v Morocco",       group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
+  { date:"2026-06-30", time:"18:00", match:"Ivory Coast v Norway",        group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
+  { date:"2026-06-30", time:"22:00", match:"France v Sweden",             group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
 
-  { date:"2026-07-01", time:"02:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-07-01", time:"17:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-07-01", time:"21:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
+  { date:"2026-07-01", time:"02:00", match:"Mexico v Ecuador",            group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
+  { date:"2026-07-01", time:"17:00", match:"England v DR Congo",          group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
+  { date:"2026-07-01", time:"21:00", match:"Belgium v Senegal",           group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
 
-  { date:"2026-07-02", time:"01:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-07-02", time:"20:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
+  { date:"2026-07-02", time:"01:00", match:"USA v Bosnia-Herzegovina",    group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
+  { date:"2026-07-02", time:"20:00", match:"Spain v Austria",             group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
 
-  { date:"2026-07-03", time:"00:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-07-03", time:"04:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-07-03", time:"19:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
-  { date:"2026-07-03", time:"23:00", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
+  { date:"2026-07-03", time:"00:00", match:"Portugal v Croatia",          group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
+  { date:"2026-07-03", time:"04:00", match:"Switzerland v Algeria",       group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
+  { date:"2026-07-03", time:"19:00", match:"Australia v Egypt",           group:"Round of 32",      broadcaster:"BBC",  channel:"BBC One",        stream:"BBC iPlayer" },
+  { date:"2026-07-03", time:"23:00", match:"Argentina v Cape Verde",      group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
 
-  { date:"2026-07-04", time:"02:30", match:"TBC",                          group:"Round of 32",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
+  { date:"2026-07-04", time:"02:30", match:"Colombia v Ghana",            group:"Round of 32",      broadcaster:"ITV",  channel:"ITV1",           stream:"ITVX" },
   { date:"2026-07-04", time:"18:00", match:"TBC",                          group:"Round of 16",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
   { date:"2026-07-04", time:"22:00", match:"TBC",                          group:"Round of 16",      broadcaster:"TBC",  channel:"TBC",            stream:"TBC" },
 

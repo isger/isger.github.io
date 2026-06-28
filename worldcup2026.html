@@ -50,7 +50,7 @@
       opacity: 0.5;
     }
 
-    /* ── Page layout (center col + ad gutters) ── */
+    /* ── Page layout ── */
     .page-wrap {
       margin: 0 auto;
     }
@@ -58,51 +58,6 @@
     .center-col {
       max-width: 680px;
       margin: 0 auto;
-    }
-
-    .ad-gutter {
-      display: none;
-      padding-top: 1rem;
-    }
-
-    .ad-placeholder {
-      width: 160px;
-      height: 600px;
-      background: var(--card);
-      border: 2px dashed var(--border);
-      border-radius: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      color: var(--border);
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      text-align: center;
-      position: sticky;
-      top: 1rem;
-    }
-
-    .ad-placeholder svg {
-      opacity: 0.35;
-    }
-
-    @media (min-width: 1060px) {
-      .page-wrap {
-        display: grid;
-        grid-template-columns: 160px minmax(0, 680px) 160px;
-        gap: 1.5rem;
-        justify-content: center;
-      }
-
-      .center-col {
-        max-width: none;
-        margin: 0;
-      }
-
-      .ad-gutter { display: block; }
     }
 
     /* ── Legend ────────────────────── */
@@ -332,15 +287,6 @@
 
 <div class="page-wrap">
 
-  <div class="ad-gutter">
-    <div class="ad-placeholder">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-      </svg>
-      Advertisement
-    </div>
-  </div>
-
   <div class="center-col">
     <div class="legend-wrap">
       <div class="legend">
@@ -359,15 +305,6 @@
     <main>
       <div id="app"></div>
     </main>
-  </div>
-
-  <div class="ad-gutter">
-    <div class="ad-placeholder">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-      </svg>
-      Advertisement
-    </div>
   </div>
 
 </div>
